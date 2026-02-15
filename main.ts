@@ -1,4 +1,8 @@
-namespace SignBoard {
+/**
+ * Custom blocks for placing signs with text
+ */
+// % weight=100 color=#8B4513 icon="\uf304" block="Sign Tools"
+namespace signTools {
 
     /**
      * Places a standing oak sign at a position with custom text on the first line.
