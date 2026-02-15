@@ -11,12 +11,13 @@ namespace signTools {
         let z = Math.floor(pos.getValue(Axis.Z));
 
         // 1. Place the sign first
-        player.execute(`setblock ${x} ${y} ${z} standing_sign 0 replace`);
+        // player.execute(`setblock ${x} ${y} ${z} standing_sign 0 replace`);
 
         // 2. Use the 'title' or 'say' command logic is hard, 
         // so we use the Bedrock "Rawtext" format which is more stable:
-        let command = `setblock ${x} ${y} ${z} standing_sign 0 replace {"Text1":"${text}"}`;
+        // let command = `setblock ${x} ${y} ${z} standing_sign 0 replace {"Text1":"${text}"}`;
 
-        player.execute(command);
+        // player.execute(command);
+        player.execute("say I am placing a sign at " + x + " " + y + " " + z)
     }
 }
