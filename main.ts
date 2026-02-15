@@ -1,7 +1,3 @@
-/**
- * Custom blocks for placing signs with text
- */
-// % weight=100 color=#8B4513 icon="\uf304" block="Sign Tools"
 namespace SignBoard {
 
     /**
