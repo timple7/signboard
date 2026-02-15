@@ -1,4 +1,4 @@
-//% color=#8B4513 icon="\uf304" block="Sign Tools"
+//% color=#8B45AA icon="\uf304" block="Sign Tools"
 namespace signTools {
 
     /**
@@ -18,6 +18,7 @@ namespace signTools {
         // let command = `setblock ${x} ${y} ${z} standing_sign 0 replace {"Text1":"${text}"}`;
 
         // player.execute(command);
-        player.execute("say I am placing a sign at " + x + " " + y + " " + z)
+        player.execute("say I am placing a sign at " + x + " " + y + " " + z + "saying" + text);
+        player.execute(`setblock ${x} ${y} ${z} standing_sign 0 replace {"Text1":"${text}"}`);
     }
 }
