@@ -1,3 +1,4 @@
+//% color=#8B4513 icon="\uf304" block="Sign Tools"
 namespace signTools {
 
     /**
@@ -8,6 +9,14 @@ namespace signTools {
         let x = Math.floor(pos.getValue(Axis.X));
         let y = Math.floor(pos.getValue(Axis.Y));
         let z = Math.floor(pos.getValue(Axis.Z));
-        player.execute(`setblock ${x} ${y} ${z} standing_sign 0 replace {"Text1":"${text}"}`);
+
+        // 1. Place the sign first
+        player.execute(`setblock ${x} ${y} ${z} standing_sign 0 replace`);
+
+        // 2. Use the 'title' or 'say' command logic is hard, 
+        // so we use the Bedrock "Rawtext" format which is more stable:
+        let command = `setblock ${x} ${y} ${z} standing_sign 0 replace {"Text1":"${text}"}`;
+
+        player.execute(command);
     }
 }
