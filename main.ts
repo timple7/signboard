@@ -4,7 +4,7 @@ namespace signTools {
     /**
      * Places a sign at coordinates
      */
-    //% block="place sign at %pos with text %text"
+    //% block="put sign at %pos with text %text"
     export function placeSign(pos: Position, text: string): void {
         let x = Math.floor(pos.getValue(Axis.X));
         let y = Math.floor(pos.getValue(Axis.Y));
