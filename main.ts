@@ -1,24 +1,24 @@
-//% color=#8B4500 icon="\uf304" block="Sign Tools"
+
 namespace signTools {
 
     /**
-     * Places a sign at coordinates
+     * Places an oak sign at the given position with custom text.
+     * @param pos the coordinates to place the sign
+     * @param text the message for the sign, eg: "Hello!"
      */
-    //% block="put sign at %pos with text %text"
+    //% block="place sign at %pos with text %text"
+    //% text.shadow="text"
     export function placeSign(pos: Position, text: string): void {
+        // Ensure coordinates are whole numbers
         let x = Math.floor(pos.getValue(Axis.X));
         let y = Math.floor(pos.getValue(Axis.Y));
         let z = Math.floor(pos.getValue(Axis.Z));
 
-        // 1. Place the sign first
-        // player.execute(`setblock ${x} ${y} ${z} standing_sign 0 replace`);
-
-        // 2. Use the 'title' or 'say' command logic is hard, 
-        // so we use the Bedrock "Rawtext" format which is more stable:
-        // let command = `setblock ${x} ${y} ${z} standing_sign 0 replace {"Text1":"${text}"}`;
-
-        // player.execute(command);
+        // This format is specific to Minecraft Education Edition (Bedrock)
+        // It avoids the complex "rawtext" brackets that often cause syntax errors
         player.execute("say I am placing a good sign at " + x + " " + y + " " + z + "saying" + text);
-        player.execute(`setblock ${x} ${y} ${z} standing_sign 0 replace {"Text1":"${text}"}`);
+        let command = `setblock ${x} ${y} ${z} standing_sign 0 replace {"Text":"${text}"}`;
+
+        player.execute(command);
     }
 }
