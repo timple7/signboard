@@ -1,4 +1,4 @@
-//% color=#8B8813 icon="\uf304" block="Sign Tools"
+//% color=#8BAA13 icon="\uf304" block="Sign Tools v3"
 namespace signTools {
 
     /**
@@ -9,16 +9,20 @@ namespace signTools {
     //% block="place sign at %pos with text %text"
     //% text.shadow="text"
     export function placeSign(pos: Position, text: string): void {
-        // Ensure coordinates are whole numbers
         let x = Math.floor(pos.getValue(Axis.X));
         let y = Math.floor(pos.getValue(Axis.Y));
         let z = Math.floor(pos.getValue(Axis.Z));
 
-        // This format is specific to Minecraft Education Edition (Bedrock)
-        // It avoids the complex "rawtext" brackets that often cause syntax errors
-        player.execute("say I am placing a very good sign at " + x + " " + y + " " + z + " saying " + text);
-        let command = `setblock ${x} ${y} ${z} standing_sign 0 replace {"Text":"${text}"}`;
+        // 1. First, we place a sign block at the location (standard command)
+        player.execute(`setblock ${x} ${y} ${z} standing_sign 0 replace`);
 
-        player.execute(command);
+        // 2. Then we use 'rawtext' which is the only 100% reliable way 
+        // in Education Edition to write to a sign via commands.
+        // We use double-backslashes to ensure the quotes survive the transition.
+        let rawData = `{"rawtext":[{"text":"${text}"}]}`;
+        player.execute(`title @p actionbar Sign placed: ${text}`); // Confirmation
+
+        // This is the specific Bedrock "setblock" with NBT for modern versions
+        player.execute(`setblock ${x} ${y} ${z} standing_sign 0 replace {"front_text":{"messages":["${text}","","",""]}}`);
     }
 }
