@@ -1,4 +1,4 @@
-
+//% color=#8B8813 icon="\uf304" block="Sign Tools"
 namespace signTools {
 
     /**
