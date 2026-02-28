@@ -1,5 +1,6 @@
 {
     "name": "SignBoard",
+    "version": "0.0.4",
     "description": "",
     "dependencies": {
         "core": "*",
