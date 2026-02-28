@@ -1,4 +1,4 @@
-//% color=#8BAA13 icon="\uf304" block="Sign Tools v3"
+//% color=#8BAA13 icon="\uf304" block="SignToolsv3"
 namespace signTools {
 
     /**
