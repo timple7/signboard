@@ -16,7 +16,7 @@ namespace signTools {
 
         // This format is specific to Minecraft Education Edition (Bedrock)
         // It avoids the complex "rawtext" brackets that often cause syntax errors
-        player.execute("say I am placing a good sign at " + x + " " + y + " " + z + "saying" + text);
+        player.execute("say I am placing a very good sign at " + x + " " + y + " " + z + " saying " + text);
         let command = `setblock ${x} ${y} ${z} standing_sign 0 replace {"Text":"${text}"}`;
 
         player.execute(command);
